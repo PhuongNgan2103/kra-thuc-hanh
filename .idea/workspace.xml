@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c888a02-45c3-47be-a6d1-147bc1ef2c95" name="Default Changelist" comment="" />
+    <list default="true" id="2c888a02-45c3-47be-a6d1-147bc1ef2c95" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commodity-management/add.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commodity-management/data.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commodity-management/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commodity-management/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/commodity-management/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commodity-management/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/commodity-management/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commodity-management/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/commodity-management/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commodity-management/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/commodity-management/manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commodity-management/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/commodity-management/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commodity-management/productManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/commodity-management/productManager.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +22,18 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1llNirsQAGg89peYUNKr329Eu1L" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,6 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -40,10 +64,28 @@
       <workItem from="1608167849176" duration="18249000" />
       <workItem from="1608193380662" duration="5771000" />
       <workItem from="1608213835314" duration="729000" />
+      <workItem from="1608253059259" duration="5083000" />
+      <workItem from="1608311822402" duration="29000" />
+      <workItem from="1608346353416" duration="21718000" />
+      <workItem from="1608379474386" duration="11763000" />
+      <workItem from="1608438353517" duration="1821000" />
+      <workItem from="1608470494664" duration="8568000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

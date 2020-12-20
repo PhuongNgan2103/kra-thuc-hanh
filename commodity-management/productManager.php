@@ -1,32 +1,33 @@
 <?php
-class ProductManager {
-    private $products = [];
+class ProductManager{
+    protected $listProducts = [];
 
-    public function __construct()
+    /**
+     * @return array
+     */
+    public function getListProduct()
     {
+        return $this->listProducts;
     }
 
-    public function getProducts()
+    public function add($product)
     {
-        return$this->products;
-    }
-
-    public function add($product){
-        array_push($this->products,$product);
-    }
-
-    public function read($index){
-        return $this->products[$index];
-    }
-
-    public function update($index,$product)
-    {
-        return $this->products[$index] = $product;
+        array_push($this->listProducts,$product);
     }
 
     public function delete($index)
     {
-        array_splice($this->products,$index,1);
+        array_splice($this->listProducts,$index ,1);
+    }
+
+    public function update($index,$product)
+    {
+        $this->listProducts[$index] = $product;
+    }
+
+    public function get($index)
+    {
+        return $this->listProducts[$index];
     }
 
 }

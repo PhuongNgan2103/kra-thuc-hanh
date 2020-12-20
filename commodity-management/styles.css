@@ -1,0 +1,11 @@
+#table2{
+    border: black solid;
+    width: 100%;
+    background-color: cadetblue;
+}
+#table1{
+    width: 100%;
+}
+td{
+    text-align: center;
+}

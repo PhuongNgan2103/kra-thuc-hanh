@@ -1,25 +1,26 @@
 <?php
-class Product{
+class Product {
     protected $id;
     protected $name;
     protected $category;
     protected $amount;
     protected $price;
     protected $description;
+    protected $date;
     protected $img;
 
     /**
-     * Product constructor.
+     * product constructor.
      * @param $id
      * @param $name
      * @param $category
      * @param $amount
      * @param $price
      * @param $description
-     * @param $dateCreated
+     * @param $date
      * @param $img
      */
-    public function __construct($id, $name, $category, $amount, $price, $description, $dateCreated, $img)
+    public function __construct($id, $name, $category, $amount, $price, $description, $date, $img)
     {
         $this->id = $id;
         $this->name = $name;
@@ -27,10 +28,9 @@ class Product{
         $this->amount = $amount;
         $this->price = $price;
         $this->description = $description;
-        $this->dateCreated = $dateCreated;
+        $this->date = $date;
         $this->img = $img;
     }
-
 
     /**
      * @return mixed
@@ -131,17 +131,17 @@ class Product{
     /**
      * @return mixed
      */
-    public function getCreatedDate()
+    public function getDate()
     {
-        return $this->createdDate;
+        return $this->date;
     }
 
     /**
-     * @param mixed $createdDate
+     * @param mixed $date
      */
-    public function setCreatedDate($createdDate)
+    public function setDate($date)
     {
-        $this->createdDate = $createdDate;
+        $this->date = $date;
     }
 
     /**
@@ -159,6 +159,8 @@ class Product{
     {
         $this->img = $img;
     }
+
+
 
 
 }

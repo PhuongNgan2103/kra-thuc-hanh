@@ -1,89 +1,78 @@
 <?php
 include_once "product.php";
 include_once "productManager.php";
+include_once "data.php";
 
-const FILENAME = 'data.json';
-$dataLoad = loadData();
-$manager = new ProductManager();
-if (count($dataLoad) > 0) {
-    foreach ($dataLoad as $value) {
-        $product = new Product($value[0], $value[1], $value[2], $value[3], $value[4], $value[5], $value[6], $value[7]);
-        $manager->add($product);
-    }
-}
+const ACTION_ADD = 'add';
+const ACTION_EDIT = 'edit';
+const ACTION_DELETE = 'delete';
 
-$listProducts = $manager->getProducts();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $action = $_POST['action'];
+    $id = $_POST['id'];
 
-    $id = $_POST['ID'];
-    $name = $_POST['Name'];
-    $category = $_POST['Category'];
-    $amount = $_POST['Amount'];
-    $price = $_POST['Price'];
-    $description = $_POST['Description'];
-    $dateCreated = $_POST['H:i - j/m/Y'];
-    $img = $_POST['Img'];
-
-    $productArray = [$id,$name,$category,$amount,$price,$description,$dateCreated,$img];
-
-    switch ($action) {
-        case "add":
-            if (!isExit($id)){
-                addProduct($productArray);
-            }
-            break;
-        case "edit":
-            header("location:EditPage.php");
-            updateProduct($id,productToArray($productArray));
-            break;
-        case "Delete":
-            deleteProduct($id);
-            break;
+    $manager = new ProductManager();
+    $data = loadData();
+    foreach ($data as $value){
+        $manager->add(arrayToObj($value));
     }
 
-    $dataSave = [];
-    foreach ($manager->getProducts() as $value) {
-        array_push($dataSave, productToArray($value));
+    $manager = new ProductManager();
+    $product = new Product($_POST['id'],$_POST['name'],$_POST['category'],$_POST['amount'],$_POST['price'],$_POST['description'],$_POST['Date'],$_POST['img']);
+
+
+    switch ($action){
+        case ACTION_ADD:
+            addProduct($product);
+            break;
+        case ACTION_DELETE:
+            deleteProduct(getIndexById($id));
+            break;
+        case ACTION_EDIT:
+            $product->setDate($_POST['date']);
+            editProduct(getIndexById($_POST['idOld']), $product);
+            break;
     }
-    saveData($dataSave);
-    header("location:index.php");
-
-
+}
+function addProduct($product){
+$GLOBALS['manager']->add($product);
+saveData(objToArray($product));
 }
 
-
-function addProduct($array)
-{
-    $product = productToArray($array);
-    $GLOBALS["manager"]->add($product);
-    saveData(productToArray($product));
+function editProduct($index, $product){
+    $listProducts = $GLOBALS['manager']->listProduct();
+    $data = [];
+    $listProducts[$index] = $product;
+    foreach ($listProducts as $product) {
+        array_push($data, objToArray($product));
+    }
+    saveData($data, true);
+}
+function deleteProduct($index){
+    $GLOBALS['manager']->delete($index);
+    $data = [];
+    $listProducts = $GLOBALS['manager']->listProduct();
+    foreach ($listProducts as $product) {
+        array_push($data, objToArray($product));
+    }
+    saveData($data,true);
 }
 
-function deleteProduct($id)
-{
-    $GLOBALS['productManager']->delete($id);
+function getIndexById($id){
+    $listProducts = $GLOBALS['manager']->listProduct();
+    foreach ($listProducts as $key=>$value){
+        if ($value->getId() == $id){
+            return $key;
+        }
+    }
+    return -1;
 }
 
-function updateProduct($id, $product)
-{
-    $GLOBALS['productManager']->update($id, $product);
-}
-
-
-function productToArray($obj)
-{
-    return [$obj->getID(), $obj->getName(), $obj->getCategory(), $obj->getAmount(), $obj->getPrice(), $obj->getDescription(), $obj->getDateCreated(), $obj->getImg()];
-}
-
-function saveData($data)
-{
-    $dataJson = json_encode($data);
-    file_put_contents(FILENAME,$dataJson);
-}
-
-function loadData(){
-    return json_encode(file_get_contents(FILENAME),true);
+function getListProducts(){
+    $list = [];
+    $data = loadData();
+    foreach ($data as $value){
+        array_push($list, arrayToObj($value));
+    }
+    return $list;
 }
